@@ -23,8 +23,9 @@ app.get('/',(req,res) =>{
 //post routing
 app.post('/',(req,res) =>{
     let data = checkData(req.body)
+    let error = true
     if(data.length === 0)
-      res.render('index')
+      res.render('index',{error: error})
     else
       res.render('pass',{name: data[0].firstName})
 })
